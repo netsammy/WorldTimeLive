@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorldTime.Views.AnalogClock">
+  
+
+        <!--<Grid>
+            <BoxView x:Name="hourHand" Color="Black"  />
+            <BoxView x:Name="minuteHand" Color="Black"  />
+            <BoxView x:Name="secondHand" Color="Red" />
+        </Grid>-->
+
+    <!--<Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Image Source="watchface.png" Aspect="AspectFit" />
+        <Image x:Name="hourHand" Source="resources/images/hourhand.png"  Aspect="AspectFit" />
+        <Image x:Name="minuteHand" Source="minutehand.png" Aspect="AspectFit" />
+        <Image x:Name="secondHand" Source="secondhand.png" Aspect="AspectFit" />
+    </Grid>-->
+    
+    <Grid>
+        <BoxView x:Name="hourHand" Color="Black" HeightRequest="6" WidthRequest="50" HorizontalOptions="Center" VerticalOptions="Center" Rotation="-90" />
+        <BoxView x:Name="minuteHand" Color="Black" HeightRequest="4" WidthRequest="70" HorizontalOptions="Center" VerticalOptions="Center" Rotation="-90" />
+        <BoxView x:Name="secondHand" Color="Red" HeightRequest="2" WidthRequest="80" HorizontalOptions="Center" VerticalOptions="Center" Rotation="-90" />
+    </Grid>
+
+</ContentView>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
+    <ActiveDebugFramework>net7.0-windows10.0.19041.0</ActiveDebugFramework>
+    <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
+    <UapAppxPackageBuildMode>StoreAndSideload</UapAppxPackageBuildMode>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <_LastSelectedProfileId>MSIX-win10-x86.pubxml</_LastSelectedProfileId>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
+    <DefaultDevice>pixel_5_-_api_29</DefaultDevice>
+    <Source>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</Source>
+    <SmallTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</SmallTileSource>
+    <MediumTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</MediumTileSource>
+    <WideTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</WideTileSource>
+    <LargeTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</LargeTileSource>
+    <AppIconSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</AppIconSource>
+    <SplashScreenSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</SplashScreenSource>
+    <PackageLogoSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</PackageLogoSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="Platforms\Windows\Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+</Project>

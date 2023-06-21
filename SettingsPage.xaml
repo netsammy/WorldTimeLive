@@ -1,0 +1,88 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorldTime.SettingsPage">
+
+
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Text="Save"
+                Command="{Binding SaveCommand}"
+                IsEnabled="{Binding IsSaveEnabled}"
+                Grid.Row="0"
+                Margin="10" />
+
+            <!--<Button Text="Clear All"               
+                x:Name="btnClear"
+                Clicked="btnClear_Clicked"    
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10" />-->
+
+            <ScrollView Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                   
+
+                    <CollectionView ItemsSource="{Binding TimeZones}" x:Name="colTimeZones"
+                                SelectionMode="Multiple"
+                                SelectionChangedCommand="{Binding TimeZonesSelectionChangedCommand}"
+                                Margin="10"
+                                VerticalOptions="StartAndExpand" Grid.ColumnSpan="2"  >
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"
+                                         Span="2"
+                                         HorizontalItemSpacing="10"
+                                         VerticalItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding IsSelected}" x:Name="chkChecked"
+                                          VerticalOptions="Center" CheckedChanged="CheckBox_CheckedChanged"
+                                          Margin="5" />
+                                    <Label Text="{Binding DisplayName}"
+                                       VerticalOptions="Center"
+                                       Margin="5"  FontSize="26"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+
+
+</ContentPage>
+
+    <!--<ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="Select Time Zones" FontSize="24" HorizontalOptions="Center" Margin="0, 0, 0, 20" />
+
+            <ListView x:Name="timeZoneListView"
+                      ItemsSource="{Binding TimeZones}"
+                      SelectionMode="Multiple"
+                      SelectedItems="{Binding SelectedTimeZones}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding DisplayName}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Save"
+                    Clicked="SaveButton_Clicked"
+                    HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>-->
+

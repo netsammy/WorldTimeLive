@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorldTime.test"
+             Title="test"
+             xmlns:clock="clr-namespace:WorldTime.Views"
+              xmlns:Time="clr-namespace:WorldTime"
+            xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+             >
+
+
+    <Grid>
+        <AbsoluteLayout>
+            <controls:WebView x:Name="webView" 
+                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                              AbsoluteLayout.LayoutFlags="All"
+                              ZIndex="0" />
+
+            <Button Text="Button" 
+                    AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.2, 0.1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    ZIndex="2" />
+
+            <Label Text="Label" 
+                   AbsoluteLayout.LayoutBounds="0.3, 0.3, 0.2, 0.1"
+                   AbsoluteLayout.LayoutFlags="All"
+                   ZIndex="1" />
+        </AbsoluteLayout>
+    </Grid>
+</ContentPage>
+
+
+<!--<VerticalStackLayout>
+        --><!--<clock:AnalogClock></clock:AnalogClock>--><!--
+        <Time:WatchFace TimeNow="10:45:3" />
+        <Time:WatchFace TimeNow="1:15:23" />
+
+        <Time:WatchFace TimeNow="22:00:43" />
+
+        --><!--<Label class="Headline" Text="{Binding CurrentTime}" />-->
+    
+        
+        <!--<Time:WatchFace>
+            <Time:WatchFace.ViewModel>
+                <local:WatchFaceViewModel CurrentTime="10:45:23" />
+            </Time:WatchFace.ViewModel>
+        </Time:WatchFace>-->
+        <!--<Time:WatchFace>
+            <Time:WatchFace.TimeNow>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>10:5:23</x:String>
+                </x:Array>
+            </Time:WatchFace.TimeNow>
+        </Time:WatchFace>
+
+
+        <Time:WatchFace>
+            <Time:WatchFace.TimeNow>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>1:15:23</x:String>
+                </x:Array>
+            </Time:WatchFace.TimeNow>
+        </Time:WatchFace>-->
+        <!--<Time:WatchFace></Time:WatchFace>--><!--
+    </VerticalStackLayout>-->
+    
+    

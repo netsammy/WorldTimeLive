@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorldTime.MainPage">
+
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Top 10 Time Zones" FontSize="24" HorizontalOptions="Center" Margin="0, 20, 0, 10" />
+
+            <ListView x:Name="timeZoneListView"
+                      ItemsSource="{Binding TimeZones}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding DisplayName}" FontSize="18" HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding CurrentTime}" FontSize="18" HorizontalOptions="StartAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Fill"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource Primary}"
+            VerticalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
+
+
+
+
+    
+    <!--<ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label x:Name="timeLabel" FontSize="24" HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>-->
+
+<!--<ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Internet Speed Test" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+            <Button x:Name="startButton" Text="Start Speed Test" Clicked="Button_Clicked" />
+
+            <ActivityIndicator x:Name="activityIndicator" IsRunning="False" VerticalOptions="CenterAndExpand" />
+
+            <Label x:Name="downloadSpeedLabel" FontSize="18" HorizontalOptions="Center" Margin="0,20,0,10" />
+            <Label x:Name="uploadSpeedLabel" FontSize="18" HorizontalOptions="Center" Margin="0,10,0,10" />
+            <Label x:Name="pingLabel" FontSize="18" HorizontalOptions="Center" Margin="0,10,0,20" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>-->
+
+
