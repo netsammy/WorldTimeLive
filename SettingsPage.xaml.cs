@@ -140,7 +140,9 @@ public partial class SettingsPage : ContentPage
 
             
 
+#pragma warning disable CS0219 // Variable is assigned but its value is never used
         int i = 0;
+#pragma warning restore CS0219 // Variable is assigned but its value is never used
         //foreach (TimeZoneItem item in colTimeZones.ItemsSource)
         //{
         //    //colTimeZones.FindByName("",)

@@ -22,7 +22,9 @@ namespace WorldTime.ViewModels
     {
         public  WorldTimePageViewModel()
         {
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
              GetWorldTimeAsync();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
         public ObservableCollection<TimeZoneItem> TimeZones { get; } = new();
@@ -42,7 +44,9 @@ namespace WorldTime.ViewModels
         string searchTerm = "";
 
         [RelayCommand]
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task GetWorldTimeAsync()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
 
 
@@ -153,6 +157,7 @@ namespace WorldTime.ViewModels
         public async Task NavigateToSettingsAsync()
         {
             //await Shell.Current.GoToAsync(nameof(SettingsPage));
+#pragma warning disable CS0168 // Variable is declared but never used
             try
             {
                 await Shell.Current.GoToAsync("///SettingsPage");
@@ -161,11 +166,14 @@ namespace WorldTime.ViewModels
             {
                 // Handle or log the exception
             }
+#pragma warning restore CS0168 // Variable is declared but never used
         }
 
 
         [RelayCommand]
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         async Task GoToDetails(TimeZoneItem timeZoneItem)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             if (timeZoneItem == null)
                 return;

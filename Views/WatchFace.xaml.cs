@@ -12,7 +12,9 @@ namespace WorldTime;
 
 public partial class WatchFace : ContentView
 {
+#pragma warning disable CS0169 // The field 'WatchFace.timer' is never used
     private Timer timer;
+#pragma warning restore CS0169 // The field 'WatchFace.timer' is never used
     public static readonly BindableProperty TimeNowProperty =
             BindableProperty.Create(nameof(TimeNow), typeof(string), typeof(WatchFace), default(string), BindingMode.TwoWay, propertyChanged: (bindable, oldvalue, newvalue) =>
                 {
@@ -46,11 +48,15 @@ public partial class WatchFace : ContentView
         InitializeComponent();
 
 
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
         Device.StartTimer(TimeSpan.FromSeconds(1), () =>
                             {
                                 TimeLabel.Text = Convert.ToDateTime(TimeLabel.Text).AddSeconds(1).ToString(TimeFormatter.TimeFormat);
                                 return true;
                             });
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning restore CS0612 // Type or member is obsolete
 
 
         //this.BindingContext = new WatchFaceViewModel

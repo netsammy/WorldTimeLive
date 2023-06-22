@@ -55,8 +55,12 @@ namespace WorldTime
             });
         }
 
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
