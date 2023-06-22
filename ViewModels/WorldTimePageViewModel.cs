@@ -1,28 +1,13 @@
-﻿
-
-
-
-using Microsoft.Maui.Controls;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using WorldTime.Utils;
+﻿using WorldTime.Utils;
 
 
 namespace WorldTime.ViewModels
 {
     public partial class WorldTimePageViewModel : ObservableObject
     {
-        public  WorldTimePageViewModel()
+        public WorldTimePageViewModel()
         {
-             GetWorldTimeAsync();
+            GetWorldTimeAsync();
         }
 
         public ObservableCollection<TimeZoneItem> TimeZones { get; } = new();
@@ -101,7 +86,7 @@ namespace WorldTime.ViewModels
                 .Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
-            
+
 
 
             var timeZoneInfos = TimeZoneInfo.GetSystemTimeZones()
@@ -112,7 +97,7 @@ namespace WorldTime.ViewModels
 
             if (Preferences.Get("SelectedTimeZones", string.Empty) == string.Empty)
             {
-                timeZoneInfos = TimeZoneInfo.GetSystemTimeZones()          
+                timeZoneInfos = TimeZoneInfo.GetSystemTimeZones()
             .Where(tz => timeZonesDefault.Contains(tz.Id))
             .ToList();
             }
@@ -123,15 +108,15 @@ namespace WorldTime.ViewModels
                 //if (selectedTimeZones.Contains(timeZoneInfo.Id))
                 //{
 
-                    var currentTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, timeZoneInfo)
-                                                        .ToString(TimeFormatter.TimeFormat);
-                    var timeZoneItem = new TimeZoneItem
-                    {
-                        DisplayName = timeZoneInfo.DisplayName,
-                        CurrentTime = currentTime,
-                        Id = timeZoneInfo.Id
-                    };
-                    TimeZones.Add(timeZoneItem);
+                var currentTime = TimeZoneInfo.ConvertTime(DateTime.UtcNow, timeZoneInfo)
+                                                    .ToString(TimeFormatter.TimeFormat);
+                var timeZoneItem = new TimeZoneItem
+                {
+                    DisplayName = timeZoneInfo.DisplayName,
+                    CurrentTime = currentTime,
+                    Id = timeZoneInfo.Id
+                };
+                TimeZones.Add(timeZoneItem);
                 //}
             }
 
@@ -178,7 +163,7 @@ namespace WorldTime.ViewModels
 
             //await Shell.Current.GoToAsync($"details?QueryParameters={Uri.EscapeDataString(JsonConvert.SerializeObject(timeZoneItemParams))}");
 
-           // await Shell.Current.GoToAsync(nameof(DetailsPage));
+            // await Shell.Current.GoToAsync(nameof(DetailsPage));
 
             //    await Shell.Current.GoToAsync(nameof(DetailsPage), true, new Dictionary<string, object>
             //{

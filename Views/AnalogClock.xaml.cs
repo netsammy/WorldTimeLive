@@ -7,12 +7,12 @@ using System;
 
 
 public partial class AnalogClock : ContentView
-    {
+{
     //private BoxView hourHand;
     //private BoxView minuteHand;
     //private BoxView secondHand;
 
- 
+
 
 
     public AnalogClock()

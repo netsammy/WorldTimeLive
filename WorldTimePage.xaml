@@ -7,8 +7,7 @@
              xmlns:viewmodel="clr-namespace:WorldTime.ViewModels"             
             x:DataType="viewmodel:WorldTimePageViewModel"
               xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
-               xmlns:Time="clr-namespace:WorldTime"
- 
+               xmlns:Time="clr-namespace:WorldTime" 
            >
 
 

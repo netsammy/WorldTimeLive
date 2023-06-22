@@ -18,6 +18,7 @@
     <AppIconSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</AppIconSource>
     <SplashScreenSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</SplashScreenSource>
     <PackageLogoSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</PackageLogoSource>
+    <AppxBuildConfigurationSelection>neutral</AppxBuildConfigurationSelection>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 
 namespace InternetWorldTimeApp
 {
@@ -41,8 +39,8 @@ namespace InternetWorldTimeApp
                 {
                     while (true)
                     {
-                        
-                        int bytesRead = await client.OpenReadTaskAsync("https://example.com").Result                            
+
+                        int bytesRead = await client.OpenReadTaskAsync("https://example.com").Result
                             .ReadAsync(buffer, 0, bufferSize);
 
                         if (bytesRead == 0)

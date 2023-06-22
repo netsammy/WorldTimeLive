@@ -1,8 +1,3 @@
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Xaml;
-using Newtonsoft.Json;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Input;
 using WorldTime.Utils;
 
@@ -33,12 +28,12 @@ public partial class SettingsPage : ContentPage
         {
 
 
-           
-            var timeZones = TimeZoneInfo.GetSystemTimeZones().OrderBy(x=>x.StandardName);
+
+            var timeZones = TimeZoneInfo.GetSystemTimeZones().OrderBy(x => x.StandardName);
             // .Select(tz => new TimeZoneSelectionViewModel(tz)));
 
 
-           
+
 
 
 
@@ -107,12 +102,12 @@ public partial class SettingsPage : ContentPage
             .ToList();
 
 
-        string joinedTimeZones =string.Empty;
+        string joinedTimeZones = string.Empty;
         foreach (var item in selectedTimeZones)
         {
-            joinedTimeZones+=  item.Id+"|" ;
+            joinedTimeZones += item.Id + "|";
         }
-       
+
 
         Preferences.Set("SelectedTimeZones", joinedTimeZones);
 
@@ -138,10 +133,10 @@ public partial class SettingsPage : ContentPage
     {
         //copilot uncheck all checkboxes in the collectionView 
 
-       
 
 
-            
+
+
 
         int i = 0;
         //foreach (TimeZoneItem item in colTimeZones.ItemsSource)
@@ -155,11 +150,11 @@ public partial class SettingsPage : ContentPage
         //        //checkbox.IsChecked = false;
         //    }
         //}
-       // colTimeZones.ItemTemplate.Values.Clear();
-        var chkChecked=colTimeZones.FindByName("chkChecked");
-       
-    //item.
-       
+        // colTimeZones.ItemTemplate.Values.Clear();
+        var chkChecked = colTimeZones.FindByName("chkChecked");
+
+        //item.
+
 
     }
 }

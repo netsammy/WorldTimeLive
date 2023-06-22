@@ -1,11 +1,5 @@
-
-
-
-
-using WorldTime.ViewModels;
-using System.Timers;
-using Timer = System.Timers.Timer;
 using WorldTime.Utils;
+using Timer = System.Timers.Timer;
 
 namespace WorldTime;
 
@@ -22,7 +16,7 @@ public partial class WatchFace : ContentView
                     // this.TimeNow= Convert.ToDateTime(newvalue).ToString("HH:mm:ss");
                     //update WatchFaceViewModel CurrentTime
 
-                   
+
                     //watchFace.BindingContext = new WatchFaceViewModel {
                     //    CurrentTime = Convert.ToDateTime(newvalue)
                     //};
@@ -37,7 +31,7 @@ public partial class WatchFace : ContentView
         set
         {
             SetValue(TimeNowProperty, value);
-            
+
         }
     }
 
@@ -70,30 +64,30 @@ public partial class WatchFace : ContentView
     //    }
     //}
 
-                            //protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
-                            //{
-                            //    base.OnPropertyChanged(propertyName);
+    //protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    //{
+    //    base.OnPropertyChanged(propertyName);
 
-                            //    if (propertyName == nameof(TimeNow))
-                            //    {
-                            //        //Device.BeginInvokeOnMainThread(() =>
-                            //        //{
-                            //            TimeLabel.Text = Convert.ToDateTime(TimeNow).ToString("HH:mm:ss");
-                            //        //});
-                            //    }
-                            //}
+    //    if (propertyName == nameof(TimeNow))
+    //    {
+    //        //Device.BeginInvokeOnMainThread(() =>
+    //        //{
+    //            TimeLabel.Text = Convert.ToDateTime(TimeNow).ToString("HH:mm:ss");
+    //        //});
+    //    }
+    //}
 
-                            //private  void TimerElapsed(object sender, ElapsedEventArgs e)
-                            //{
-                            //    DateTime currentTime = DateTime.Parse(TimeNow);
-                            //    currentTime = currentTime.AddSeconds(1);
-                            //    TimeNow = currentTime.ToString("HH:mm:ss");
-
-
-                            //    this.TimeLabel.Text = TimeNow;
+    //private  void TimerElapsed(object sender, ElapsedEventArgs e)
+    //{
+    //    DateTime currentTime = DateTime.Parse(TimeNow);
+    //    currentTime = currentTime.AddSeconds(1);
+    //    TimeNow = currentTime.ToString("HH:mm:ss");
 
 
-                            //}
+    //    this.TimeLabel.Text = TimeNow;
+
+
+    //}
 }
 
 //public partial class WatchFace : ContentView

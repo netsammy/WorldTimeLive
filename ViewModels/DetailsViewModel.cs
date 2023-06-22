@@ -1,12 +1,12 @@
 ﻿namespace WorldTime.ViewModel;
 
 [QueryProperty(nameof(TimeZoneItem), "TimeZoneItem")]
-public partial class DetailsViewModel  : ObservableObject
+public partial class DetailsViewModel : ObservableObject
 {
     IMap map;
     public DetailsViewModel()
     {
-        
+
     }
 
     [ObservableProperty]

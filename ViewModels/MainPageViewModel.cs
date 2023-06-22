@@ -1,8 +1,5 @@
 ﻿using InternetWorldTimeApp;
-using System;
-using System.ComponentModel;
 using System.Net.NetworkInformation;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 
@@ -149,7 +146,7 @@ namespace WorldTime.ViewModels
                 try
                 {
                     var bytesReceived = WorldTimeUtils.DownloadBytes(buffer, BufferSize);
-                    totalBytes +=  bytesReceived.Result;
+                    totalBytes += bytesReceived.Result;
 
                     var elapsedTime = (DateTime.Now - startTime).TotalSeconds;
                     var speed = totalBytes / elapsedTime;
