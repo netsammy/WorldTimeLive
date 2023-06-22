@@ -72,7 +72,7 @@
                     />
 
 
-
+           
         </AbsoluteLayout>
 
         <!-- Settings button -->
@@ -94,16 +94,14 @@
     </Grid>
 
     <!-- format XAMl to make responsive and enhace theme and make span auto not 3 -->
-
+    
     <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         
-        -->
-    <!-- display -->
-    <!--
+        --><!-- display --><!--
 
 
 
@@ -189,7 +187,7 @@
         </CollectionView>-->
 
 
-    <!--<CollectionView ItemsSource="{Binding TimeZones}" >
+        <!--<CollectionView ItemsSource="{Binding TimeZones}" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Horizontal" Span="3"/>
             </CollectionView.ItemsLayout>
@@ -206,7 +204,7 @@
         </CollectionView>-->
 
 
-    <!--<RefreshView
+        <!--<RefreshView
             Grid.ColumnSpan="2"
             Command="{Binding GetWorldTimeCommand}"
             IsRefreshing="{Binding IsRefreshing}" >
@@ -215,20 +213,16 @@
                 <CollectionView
                     ItemsSource="{Binding TimeZones}"
                     SelectionMode="None">
-                    -->
-    <!--<CollectionView.EmptyView>
-                        -->
-    <!--<StackLayout Padding="100">
+                    --><!--<CollectionView.EmptyView>
+                        --><!--<StackLayout Padding="100">
                             <Image
                                 HorizontalOptions="Center"
                                 Source="nodata.png"
                                 HeightRequest="160"
                                 WidthRequest="160"
                                 VerticalOptions="Center" />
-                        </StackLayout>-->
-    <!--
-                    </CollectionView.EmptyView>-->
-    <!--
+                        </StackLayout>--><!--
+                    </CollectionView.EmptyView>--><!--
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout  Orientation="Horizontal" Span="3"/>
                     </CollectionView.ItemsLayout>
@@ -250,14 +244,10 @@
                                             VerticalOptions="Center"
                                             Padding="10">
                                             <Label class="Headline" Text="{Binding DisplayName}" />
-                                            -->
-    <!--<Label class="Subhead" Text="{Binding CurrentTime}" />-->
-    <!--
+                                            --><!--<Label class="Subhead" Text="{Binding CurrentTime}" />--><!--
                                             <Time:WatchFace TimeNow="{Binding CurrentTime}" />
                                             <Time:WatchFace TimeNow="1:22:33" />
-                                            -->
-    <!--<clock:AnalogClock></clock:AnalogClock>-->
-    <!--
+                                            --><!--<clock:AnalogClock></clock:AnalogClock>--><!--
                                         </VerticalStackLayout>
                                         
 
@@ -270,17 +260,15 @@
             </ContentView>
         </RefreshView>-->
 
-    <!--<CollectionView ItemsSource="{Binding TimeZones}" >
+        <!--<CollectionView ItemsSource="{Binding TimeZones}" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout  Orientation="Horizontal" Span="3"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        -->
-    <!--<Label Text="{Binding DisplayName}" />
-                        <Time:WatchFace TimeNow="{Binding CurrentTime, Mode=OneWay}" />-->
-    <!--
+                        --><!--<Label Text="{Binding DisplayName}" />
+                        <Time:WatchFace TimeNow="{Binding CurrentTime, Mode=OneWay}" />--><!--
                         <VerticalStackLayout
                                             Grid.Column="0"
                                             VerticalOptions="Center"
@@ -300,7 +288,7 @@
 
 
 
-    <!--<StackLayout BindableLayout.ItemsSource="{Binding TimeZones}" Grid.Column="0">
+        <!--<StackLayout BindableLayout.ItemsSource="{Binding TimeZones}" Grid.Column="0">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
                   
@@ -310,7 +298,7 @@
             </BindableLayout.ItemTemplate>
         </StackLayout>-->
 
-    <!--<Button
+        <!--<Button
             Grid.Row="1"
             Grid.Column="0"
             Margin="8"
@@ -318,11 +306,11 @@
            
             Text="Get TimeZones" />-->
 
-    <!--<Time:WatchFace TimeNow="12:13:45"  Grid.Row="1"
+        <!--<Time:WatchFace TimeNow="12:13:45"  Grid.Row="1"
             Grid.Column="0" />
         <Time:WatchFace TimeNow="1:53:2"   Grid.Row="1"
             Grid.Column="1"/>-->
-    <!--<SearchBar x:Name="searchBar"
+        <!--<SearchBar x:Name="searchBar"
                        Placeholder="Search Time Zones"
                     Grid.Row="1"
             Grid.Column="1"

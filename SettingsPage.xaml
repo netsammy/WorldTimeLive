@@ -52,7 +52,7 @@
                                           Margin="5" />
                                     <Label Text="{Binding DisplayName}"
                                        VerticalOptions="Center"
-                                       Margin="5"  FontSize="26"/>
+                                       Margin="5"  FontSize="20"/>
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

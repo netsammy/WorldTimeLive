@@ -1,4 +1,3 @@
-using Microsoft.Maui.Controls;
 using WorldTime.ViewModels;
 namespace WorldTime;
 
@@ -18,14 +17,40 @@ public partial class WorldTimePage : ContentPage
           
     };
 
-        webView.Navigated += WebViewNavigated;
+
+//        // Mark Pakistan on the map
+//        string scriptPakistan = @"
+//var markerPakistan = ge.createPlacemark('');
+//var pointPakistan = ge.createPoint('');
+//pointPakistan.setLatitude(30.3753);
+//pointPakistan.setLongitude(69.3451);
+//markerPakistan.setGeometry(pointPakistan);
+//ge.getFeatures().appendChild(markerPakistan);
+//";
+
+//        // Mark USA on the map
+//        string scriptUSA = @"
+//var markerUSA = ge.createPlacemark('');
+//var pointUSA = ge.createPoint('');
+//pointUSA.setLatitude(37.0902);
+//pointUSA.setLongitude(-95.7129);
+//markerUSA.setGeometry(pointUSA);
+//ge.getFeatures().appendChild(markerUSA);
+//";
+
+//        // Execute the scripts
+//        webView.EvaluateJavaScriptAsync(scriptPakistan);
+//        webView.EvaluateJavaScriptAsync(scriptUSA);
+
+
+        //webView.Navigated += WebViewNavigated;
 
         //// Start a timer to rotate Google Earth in real time.
         //var timer = new System.Timers.Timer(1000);
         //timer.Elapsed += (sender, e) =>
         //{
         //    // Rotate Google Earth by 1 degree.
-        //    webView.EvaluateJavaScriptAsync("document.getElementById('earth').style.rotation += 100deg;");
+        //    webView.EvaluateJavaScriptAsync("document.getElementById('earth').style.rotation += 1deg;");
         //};
         //timer.Start();
     }

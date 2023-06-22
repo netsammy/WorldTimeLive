@@ -74,4 +74,4 @@ public partial class BardWatchFace : ContentView
             secondHand.Rotation = dateTime.Second * 360 / 60;
         }
     }
-
+}

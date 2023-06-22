@@ -31,15 +31,11 @@ public partial class AnalogClock : ContentView
                 }
         };
 
-#pragma warning disable CS0612 // Type or member is obsolete
-#pragma warning disable CS0618 // Type or member is obsolete
         Device.StartTimer(TimeSpan.FromSeconds(1), () =>
         {
             UpdateClock();
             return true;
         });
-#pragma warning restore CS0618 // Type or member is obsolete
-#pragma warning restore CS0612 // Type or member is obsolete
     }
 
     protected override void OnSizeAllocated(double width, double height)

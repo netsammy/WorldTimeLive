@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net7.0-maccatalyst;net7.0-android33.0</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -27,14 +28,13 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-		<GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
 		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
 		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>
 		<GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-		<PackageIcon>icon.jpg</PackageIcon>
-		<AppInstallerUri>E:\tempmaui</AppInstallerUri>
+    <PackageIcon>icon.jpg</PackageIcon>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
@@ -77,24 +77,17 @@
 	  <ApplicationTitle>WorldTimeLive</ApplicationTitle>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android33.0|AnyCPU'">
-	  <ApplicationId>com.netsammy.WorldTimeLive</ApplicationId>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android33.0|AnyCPU'">
-	  <ApplicationId>com.netsammy.WorldTimeLive</ApplicationId>
-	</PropertyGroup>
-
-	<PropertyGroup>
-	  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\icon.jpg" BaseSize="128,128" />
-		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\AppIcon\icon.jpg" Color="#512BD4" BaseSize="128,128" />
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\AppIcon\icon.jpg" Color="#512BD4" BaseSize="128,128" />
 
+    
+    <!-- Splash Screen -->
+		<!--<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    -->
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
@@ -107,14 +100,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Resources\Images\temp\**" />
+	  <Compile Remove="Resources\Images\temp\**" />
+	  <EmbeddedResource Remove="Resources\Images\temp\**" />
+	  <MauiCss Remove="Resources\Images\temp\**" />
+	  <MauiImage Remove="Resources\Images\temp\**" />
+	  <MauiXaml Remove="Resources\Images\temp\**" />
+	  <None Remove="Resources\Images\temp\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Remove="BardWatchFace.xaml.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Remove="BardWatchFace.xaml" />
 	</ItemGroup>
-
-	
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.2.0" />
@@ -126,21 +127,6 @@
 	<ItemGroup>
 	  <Folder Include="Pages\" />
 	  <Folder Include="Resources\Images\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Properties\Resources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Resources.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="Properties\Resources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -167,11 +153,13 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Update="Resources\AppIcon\icon.jpg">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
-	</ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\AppIcon\icon.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
+  
+  
 </Project>
