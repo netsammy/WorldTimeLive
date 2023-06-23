@@ -33,7 +33,9 @@ public partial class testBard : ContentPage
 
     public class ViewModel
     {
+#pragma warning disable CS0067 // The event 'testBard.ViewModel.TimeChanged' is never used
         public event EventHandler TimeChanged;
+#pragma warning restore CS0067 // The event 'testBard.ViewModel.TimeChanged' is never used
 
         public DateTime Time { get; set; }
     }
