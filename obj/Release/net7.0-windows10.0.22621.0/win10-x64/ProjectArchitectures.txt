@@ -1,1 +1,0 @@
-D:\GitHub2023\WorldTimeLive\WorldTime.csproj;x64
