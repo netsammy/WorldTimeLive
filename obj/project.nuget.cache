@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "2u3gW3eISXqPxSp0vNO8PqZuSnaGa+frTv+jZzuszPIpz2hhyN8Jv8frq2eyRk2+2h07kzMepLU0gohng8ASAQ==",
+  "success": false,
+  "projectFilePath": "D:\\GitHub2023\\WorldTimeLive\\WorldTime.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to read project information for 'WorldTime': Sequence contains more than one element"
+    }
+  ]
+}

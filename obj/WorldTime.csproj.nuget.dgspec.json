@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\GitHub2023\\WorldTimeLive\\WorldTime.csproj": {}
+  },
+  "projects": {
+    "D:\\GitHub2023\\WorldTimeLive\\WorldTime.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\GitHub2023\\WorldTimeLive\\WorldTime.csproj",
+        "projectPath": "D:\\GitHub2023\\WorldTimeLive\\WorldTime.csproj",
+        "packagesPath": "C:\\Users\\abdus\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub2023\\WorldTimeLive\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abdus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        }
+      }
+    }
+  }
+}
