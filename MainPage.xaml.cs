@@ -41,6 +41,7 @@ namespace WorldTime
                     var timeZoneItem = new TimeZoneItem
                     {
                         DisplayName = timeZoneInfo.DisplayName,
+                        StandardName = timeZoneInfo.StandardName,
                         CurrentTime = currentTime,
                         Id = timeZoneInfo.Id
                     };

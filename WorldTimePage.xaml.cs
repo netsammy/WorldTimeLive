@@ -10,6 +10,7 @@ public partial class WorldTimePage : ContentPage
 
         webView.Source = new UrlWebViewSource
         {
+            //Url = "https://google.com"
             Url = "https://earth.google.com/web/@9.23782166,71.27953178,-5971.37160656a,18139435.85241795d,35y,-0h,0t,0r"
 
             //Url = "https://earth.google.com"
@@ -17,6 +18,7 @@ public partial class WorldTimePage : ContentPage
 
         };
 
+        //Preferences.Set("SelectedTimeZones", "");
 
         //        // Mark Pakistan on the map
         //        string scriptPakistan = @"

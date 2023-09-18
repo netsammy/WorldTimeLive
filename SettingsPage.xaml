@@ -1,88 +1,177 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WorldTime.SettingsPage">
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorldTime.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:WorldTime"
+    BackgroundColor="#ADD8E6">
 
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor">#ADD8E6</Color>
+            <Color x:Key="ForegroundColor">#FFFFFF</Color>
+            <Color x:Key="ButtonBackgroundColor">#2B0B98</Color>
+            <Color x:Key="ButtonTextColor">White</Color>
+            <Color x:Key="SearchBarBackgroundColor">#ADD8E6</Color>
+            <Color x:Key="SearchBarTextColor">#333333</Color>
+            <Color x:Key="CheckBoxBackgroundColor">#ADD8E6</Color>
+            <Color x:Key="CheckBoxTextColor">#333333</Color>
+            <Color x:Key="LabelTextColor">#666666</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="{StaticResource BackgroundColor}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Button Text="Save"
-                Command="{Binding SaveCommand}"
-                IsEnabled="{Binding IsSaveEnabled}"
-                Grid.Row="0"
-                Margin="10" />
+            <StackLayout Orientation="Horizontal">
+                <SearchBar
+                    x:Name="searchBar"
+                    Margin="5"
+                    BackgroundColor="{StaticResource SearchBarBackgroundColor}"
+                    CancelButtonColor="{StaticResource ButtonBackgroundColor}"
+                    HorizontalOptions="Start"
+                    Placeholder="Search"
+                    SearchCommand="{Binding SearchCommand}"
+                    Text="{Binding SearchText}"
+                    TextColor="{StaticResource SearchBarTextColor}"
+                    VerticalOptions="Center"
+                    WidthRequest="200" />
+                <Button
+                    x:Name="btnSearch"
+                    Margin="5"
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                    HorizontalOptions="End"
+                    Pressed="btnSearch_Pressed"
+                    Text="Search"
+                    TextColor="{StaticResource ButtonTextColor}"
+                    WidthRequest="100" />
+            </StackLayout>
 
-            <!--<Button Text="Clear All"               
-                x:Name="btnClear"
-                Clicked="btnClear_Clicked"    
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="10" />-->
+            <HorizontalStackLayout
+                Grid.Row="1"
+                HorizontalOptions="FillAndExpand"
+                Spacing="3">
+                <Button
+                    x:Name="btnSave"
+                    Margin="5"
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Pressed="btnSave_Pressed"
+                    Text="Save"
+                    TextColor="{StaticResource ButtonTextColor}"
+                    WidthRequest="100" />
 
-            <ScrollView Grid.Row="1">
+                <Button
+                    x:Name="btnShowAll"
+                    Margin="5"
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Pressed="btnShowAll_Pressed"
+                    Text="Show All"
+                    TextColor="{StaticResource ButtonTextColor}"
+                    WidthRequest="100" />
+
+                <Button
+                    x:Name="btnReset"
+                    Margin="5"
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Pressed="btnReset_Pressed"
+                    Text="Reset"
+                    TextColor="{StaticResource ButtonTextColor}"
+                    WidthRequest="100" />
+
+                <Button
+                    Margin="10"
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="False"
+                    Pressed="Button_Pressed"
+                    Text="Back"
+                    TextColor="{StaticResource ButtonTextColor}"
+                    WidthRequest="100" />
+            </HorizontalStackLayout>
+
+            <ScrollView Grid.Row="2">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
-                   
-
-                    <CollectionView ItemsSource="{Binding TimeZones}" x:Name="colTimeZones"
-                                SelectionMode="Multiple"
-                                SelectionChangedCommand="{Binding TimeZonesSelectionChangedCommand}"
-                                Margin="10"
-                                VerticalOptions="StartAndExpand" Grid.ColumnSpan="2"  >
+                    <CollectionView
+                        x:Name="colTimeZones"
+                        Grid.ColumnSpan="2"
+                        Margin="10"
+                        ItemsSource="{Binding TimeZones}"
+                        VerticalOptions="StartAndExpand">
                         <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical"
-                                         Span="2"
-                                         HorizontalItemSpacing="10"
-                                         VerticalItemSpacing="10" />
+                            <GridItemsLayout
+                                HorizontalItemSpacing="10"
+                                Orientation="Vertical"
+                                Span="2"
+                                VerticalItemSpacing="10" />
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout Orientation="Horizontal">
-                                    <CheckBox IsChecked="{Binding IsSelected}" x:Name="chkChecked"
-                                          VerticalOptions="Center" CheckedChanged="CheckBox_CheckedChanged"
-                                          Margin="5" />
-                                    <Label Text="{Binding DisplayName}"
-                                       VerticalOptions="Center"
-                                       Margin="5"  FontSize="20"/>
+                            <DataTemplate x:DataType="model:TimeZoneItem">
+                                <StackLayout BackgroundColor="{StaticResource BackgroundColor}" Orientation="Vertical">
+                                    <StackLayout
+                                        Margin="5"
+                                        Orientation="Horizontal"
+                                        Spacing="5">
+                                        <CheckBox
+                                            x:Name="chkChecked"
+                                            Margin="0"
+                                            BackgroundColor="{StaticResource CheckBoxBackgroundColor}"
+                                            CheckedChanged="CheckBox_CheckedChanged"
+                                            IsChecked="{Binding IsSelected}"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            Margin="0"
+                                            FontSize="10"
+                                            Text="{Binding StandardName}"
+                                            TextColor="{StaticResource CheckBoxTextColor}"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+
+                                    <Label
+                                        Margin="5"
+                                        FontSize="10"
+                                        Text="{Binding DisplayName}"
+                                        TextColor="{StaticResource LabelTextColor}"
+                                        VerticalOptions="End" />
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Grid>
             </ScrollView>
+
+            <!--<ContentView IsVisible="{Binding IsLoading}">
+                <Grid IsVisible="{Binding IsLoading}">
+                    <BoxView BackgroundColor="#00000080" />
+                    <StackLayout
+                        BackgroundColor="{StaticResource BackgroundColor}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End">
+                        <ActivityIndicator
+                            HeightRequest="100"
+                            IsRunning="{Binding IsLoading}"
+                            WidthRequest="100" />
+                        <Label Text="Loading... Please wait while we get the data" />
+
+                    </StackLayout>
+                </Grid>
+            </ContentView>-->
         </Grid>
+
     </ContentPage.Content>
-
-
 </ContentPage>
-
-    <!--<ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label Text="Select Time Zones" FontSize="24" HorizontalOptions="Center" Margin="0, 0, 0, 20" />
-
-            <ListView x:Name="timeZoneListView"
-                      ItemsSource="{Binding TimeZones}"
-                      SelectionMode="Multiple"
-                      SelectedItems="{Binding SelectedTimeZones}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding DisplayName}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Button Text="Save"
-                    Clicked="SaveButton_Clicked"
-                    HorizontalOptions="Center" />
-        </StackLayout>
-    </ContentPage.Content>-->
-

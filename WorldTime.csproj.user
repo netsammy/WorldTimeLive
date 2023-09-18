@@ -2,25 +2,28 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
-    <ActiveDebugFramework>net7.0-windows10.0.19041.0</ActiveDebugFramework>
+    <ActiveDebugFramework>net7.0-windows10.0.22621.0</ActiveDebugFramework>
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
     <UapAppxPackageBuildMode>StoreAndSideload</UapAppxPackageBuildMode>
     <AppxShowAllApps>False</AppxShowAllApps>
     <_LastSelectedProfileId>MSIX-win10-x86.pubxml</_LastSelectedProfileId>
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
-    <SelectedPlatformGroup>RemoteDevice</SelectedPlatformGroup>
+    <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
     <DefaultDevice>pixel_5_-_api_29</DefaultDevice>
-    <Source>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</Source>
-    <SmallTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</SmallTileSource>
-    <MediumTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</MediumTileSource>
-    <WideTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</WideTileSource>
-    <LargeTileSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</LargeTileSource>
-    <AppIconSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</AppIconSource>
-    <SplashScreenSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</SplashScreenSource>
-    <PackageLogoSource>D:\abdus projects\MAUI\WorldTime\Resources\AppIcon\icon.jpg</PackageLogoSource>
+    <Source>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</Source>
+    <SmallTileSource>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</SmallTileSource>
+    <MediumTileSource>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</MediumTileSource>
+    <WideTileSource>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</WideTileSource>
+    <LargeTileSource>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</LargeTileSource>
+    <AppIconSource>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</AppIconSource>
+    <SplashScreenSource>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</SplashScreenSource>
+    <PackageLogoSource>D:\abdus projects\MAUI\2023\WorldTime\Resources\AppIcon\icon.jpg</PackageLogoSource>
     <AppxBuildConfigurationSelection>neutral</AppxBuildConfigurationSelection>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|x64'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetPlatformIdentifier)'=='iOS'">
@@ -30,6 +33,32 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|x64'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|x64'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android33.0|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android33.0|x64'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android33.0|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android33.0|x64'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemGroup>
+    <MauiXaml Update="WorldTimePageAndroid.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+  </ItemGroup>
   <ItemGroup>
     <None Update="Platforms\Windows\Package.appxmanifest">
       <SubType>Designer</SubType>

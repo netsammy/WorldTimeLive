@@ -1,35 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WorldTime.MainPage">
+<ContentPage
+    x:Class="WorldTime.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
 
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Top 10 Time Zones" FontSize="24" HorizontalOptions="Center" Margin="0, 20, 0, 10" />
+            <Label
+                Margin="0,20,0,10"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="Top 10 Time Zones" />
 
-            <ListView x:Name="timeZoneListView"
-                      ItemsSource="{Binding TimeZones}">
+            <ListView x:Name="timeZoneListView" ItemsSource="{Binding TimeZones}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding DisplayName}" FontSize="18" HorizontalOptions="StartAndExpand" />
-                                <Label Text="{Binding CurrentTime}" FontSize="18" HorizontalOptions="StartAndExpand" />
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding DisplayName}" />
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding StandardName}" />
+                                <Label
+                                    FontSize="18"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding CurrentTime}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <ActivityIndicator
-            Grid.RowSpan="2"
-            Grid.ColumnSpan="2"
-            HorizontalOptions="Fill"
-            IsRunning="{Binding IsBusy}"
-            IsVisible="{Binding IsBusy}"
-            Color="{StaticResource Primary}"
-            VerticalOptions="Center" />
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Fill"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center"
+                Color="{StaticResource Primary}" />
         </StackLayout>
     </ContentPage.Content>
 
@@ -38,8 +52,8 @@
 
 
 
-    
-    <!--<ContentPage.Content>
+
+<!--<ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label x:Name="timeLabel" FontSize="24" HorizontalOptions="Center" />
         </StackLayout>

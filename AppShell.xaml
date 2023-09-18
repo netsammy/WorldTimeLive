@@ -4,16 +4,67 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WorldTime"
-    Shell.FlyoutBehavior="Disabled">
+    BackgroundColor="#2B0B98"
+    FlyoutBackgroundColor="#2B0B98"
+    FlyoutWidth="50"
+    Shell.FlyoutBehavior="Locked"
+    Shell.NavBarIsVisible="False"
+    WidthRequest="50">
+
+    <!--<Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black" HeightRequest="200">
+                <Image
+                    Aspect="AspectFill"
+                    Opacity="0.6"
+                    Source="store.jpg" />
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    Text="Animals"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>-->
+
+    <!--<TabBar>
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:WorldTimePageAndroid}" />
+        </Tab>
+
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:SettingPage}" />
+        </Tab>
+    </TabBar>-->
+
+
+
+    <!--<ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:WorldTimePage}"
+        Route="WorldTimePage" />-->
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:WorldTimePage}"
-        Route="WorldTimePage" />
+        Icon="drawable/Icon.png"
+        Route="{OnPlatform Android=WorldTimePageAndroid,
+                           iOS=WorldTimePageAndroid,
+                           WinUI=WorldTimePage}">
+        <ShellContent.ContentTemplate>
+            <OnPlatform x:TypeArguments="DataTemplate">
+                <On Platform="Windows" Value="{DataTemplate local:WorldTimePage}" />
+                <On Platform="Android" Value="{DataTemplate local:WorldTimePageAndroid}" />
+            </OnPlatform>
+
+        </ShellContent.ContentTemplate>
+    </ShellContent>
+
 
     <ShellContent
         Title="Settings"
-        ContentTemplate="{DataTemplate local:SettingsPage }"
+        ContentTemplate="{DataTemplate local:SettingsPage}"
+        Icon="drawable/settings.png"
         Route="SettingsPage" />
 
     <!--<ShellContent

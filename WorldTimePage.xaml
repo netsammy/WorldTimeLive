@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:WorldTime"
-             x:Class="WorldTime.WorldTimePage"
-             Title=""
-             xmlns:viewmodel="clr-namespace:WorldTime.ViewModels"             
-            x:DataType="viewmodel:WorldTimePageViewModel"
-              xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
-               xmlns:Time="clr-namespace:WorldTime" 
-           >
+<ContentPage
+    x:Class="WorldTime.WorldTimePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Time="clr-namespace:WorldTime"
+    xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+    xmlns:model="clr-namespace:WorldTime"
+    xmlns:viewmodel="clr-namespace:WorldTime.ViewModels"
+    Title=""
+    x:DataType="viewmodel:WorldTimePageViewModel">
 
 
     <Grid>
@@ -18,96 +18,101 @@
         </Grid.RowDefinitions>-->
 
         <AbsoluteLayout>
-            <controls:WebView x:Name="webView" Grid.Row="0"
-                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                              AbsoluteLayout.LayoutFlags="All"
-                              ZIndex="0" Margin="-100" />
+            <controls:WebView
+                x:Name="webView"
+                Grid.Row="0"
+                Margin="-100"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                ZIndex="0" />
 
-            <CollectionView Grid.Row="0"
-                            ItemsSource="{Binding TimeZones}"
-                            ItemSizingStrategy="MeasureFirstItem"
-                             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                              AbsoluteLayout.LayoutFlags="All"
-                            ZIndex="2">
+            <CollectionView
+                Grid.Row="0"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding TimeZones}"
+                ZIndex="2">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="3" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:TimeZoneItem">
-                        <Grid  BackgroundColor="Transparent"
-                      Margin="5"
-                      Padding="20"
-                      HeightRequest="130"
-                      WidthRequest="250">
+                        <Grid
+                            Margin="5"
+                            Padding="20"
+                            BackgroundColor="Transparent"
+                            HeightRequest="200"
+                            WidthRequest="250">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Row="0"
-                           Text="{Binding DisplayName}"
-                           FontSize="16"
-                           FontAttributes="Bold"
-                          
-                           HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center"  />
+                            <Label
+                                Grid.Row="0"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding DisplayName}"
+                                VerticalTextAlignment="Center" />
 
-                            <Time:WatchFace Grid.Row="1"
-                                    TimeNow="{Binding CurrentTime}"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"  />
+                            <Time:WatchFace
+                                Grid.Row="1"
+                                HorizontalOptions="Center"
+                                TimeNow="{Binding CurrentTime}"
+                                VerticalOptions="Center" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-    
-
-            <Button Grid.Row="1"
-                    Text="Refresh"
-                    x:Name="btnRefresh"
-                    Command="{Binding GetRefreshCommand}"
-                    HorizontalOptions="Center"
-                    Margin="0,10,0,0"
-                    ZIndex="3" IsVisible="false"
-                    />
 
 
-           
+            <Button
+                x:Name="btnRefresh"
+                Grid.Row="1"
+                Margin="0,10,0,0"
+                Command="{Binding GetRefreshCommand}"
+                HorizontalOptions="Center"
+                IsVisible="false"
+                Text="Refresh"
+                ZIndex="3" />
+
+
+
         </AbsoluteLayout>
 
-        <!-- Settings button -->
+        <!--  Settings button  -->
         <Button
             x:Name="btnSettings"
+            Margin="0,0,16,16"
             Command="{Binding NavigateToSettingsCommand}"
             HorizontalOptions="End"
+            ScaleX="1.0"
+            ScaleY="1.0"
+            Text="Settings"
             VerticalOptions="End"
-            Margin="0,0,16,16"
-                    Text="Settings"     
-            
-            ZIndex="3"
-             ScaleX="1.0"
-                ScaleY="1.0"
-            
-            >
-        </Button>
+            ZIndex="3" />
 
     </Grid>
 
-    <!-- format XAMl to make responsive and enhace theme and make span auto not 3 -->
-    
+    <!--  format XAMl to make responsive and enhace theme and make span auto not 3  -->
+
     <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        --><!-- display --><!--
+
+    -->
+    <!--  display  -->
+    <!--
 
 
 
         <AbsoluteLayout>
-            <controls:WebView x:Name="webView" 
+            <controls:WebView x:Name="webView"
                               AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                               AbsoluteLayout.LayoutFlags="All"
                               ZIndex="0" />
@@ -134,7 +139,7 @@
                            Text="{Binding DisplayName}"
                            FontSize="16"
                            FontAttributes="Bold"
-                          
+
                            HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center"  />
 
@@ -151,12 +156,12 @@
             Text="Refresh"
                 x:Name="btnRefresh"
             Command="{Binding GetRefreshCommand}"
-           
+
             HorizontalOptions="Center"
             Margin="0,10,0,0" ZIndex="3" />
 
         </AbsoluteLayout>
-    
+
     </Grid>-->
 
 
@@ -188,7 +193,7 @@
         </CollectionView>-->
 
 
-        <!--<CollectionView ItemsSource="{Binding TimeZones}" >
+    <!--<CollectionView ItemsSource="{Binding TimeZones}" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Horizontal" Span="3"/>
             </CollectionView.ItemsLayout>
@@ -205,7 +210,7 @@
         </CollectionView>-->
 
 
-        <!--<RefreshView
+    <!--<RefreshView
             Grid.ColumnSpan="2"
             Command="{Binding GetWorldTimeCommand}"
             IsRefreshing="{Binding IsRefreshing}" >
@@ -214,16 +219,20 @@
                 <CollectionView
                     ItemsSource="{Binding TimeZones}"
                     SelectionMode="None">
-                    --><!--<CollectionView.EmptyView>
-                        --><!--<StackLayout Padding="100">
+    -->
+    <!--<CollectionView.EmptyView>
+    -->
+    <!--<StackLayout Padding="100">
                             <Image
                                 HorizontalOptions="Center"
                                 Source="nodata.png"
                                 HeightRequest="160"
                                 WidthRequest="160"
                                 VerticalOptions="Center" />
-                        </StackLayout>--><!--
-                    </CollectionView.EmptyView>--><!--
+                        </StackLayout>-->
+    <!--
+                    </CollectionView.EmptyView>-->
+    <!--
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout  Orientation="Horizontal" Span="3"/>
                     </CollectionView.ItemsLayout>
@@ -231,26 +240,30 @@
                         <DataTemplate x:DataType="model:TimeZoneItem">
                             <Grid Padding="10">
                                 <Frame HeightRequest="125"
-                                         
+
                                     >
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer 
+                                        <TapGestureRecognizer
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:WorldTimePageViewModel}}, Path=GoToDetailsCommand}"
                                             CommandParameter="{Binding .}"/>
                                     </Frame.GestureRecognizers>
                                     <Grid Padding="0" ColumnDefinitions="*">
-                                        
+
                                         <VerticalStackLayout
                                             Grid.Column="0"
                                             VerticalOptions="Center"
                                             Padding="10">
                                             <Label class="Headline" Text="{Binding DisplayName}" />
-                                            --><!--<Label class="Subhead" Text="{Binding CurrentTime}" />--><!--
+    -->
+    <!--<Label class="Subhead" Text="{Binding CurrentTime}" />-->
+    <!--
                                             <Time:WatchFace TimeNow="{Binding CurrentTime}" />
                                             <Time:WatchFace TimeNow="1:22:33" />
-                                            --><!--<clock:AnalogClock></clock:AnalogClock>--><!--
+    -->
+    <!--<clock:AnalogClock></clock:AnalogClock>-->
+    <!--
                                         </VerticalStackLayout>
-                                        
+
 
                                     </Grid>
                                 </Frame>
@@ -261,25 +274,27 @@
             </ContentView>
         </RefreshView>-->
 
-        <!--<CollectionView ItemsSource="{Binding TimeZones}" >
+    <!--<CollectionView ItemsSource="{Binding TimeZones}" >
             <CollectionView.ItemsLayout>
                 <GridItemsLayout  Orientation="Horizontal" Span="3"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        --><!--<Label Text="{Binding DisplayName}" />
-                        <Time:WatchFace TimeNow="{Binding CurrentTime, Mode=OneWay}" />--><!--
+    -->
+    <!--<Label Text="{Binding DisplayName}" />
+                        <Time:WatchFace TimeNow="{Binding CurrentTime, Mode=OneWay}" />-->
+    <!--
                         <VerticalStackLayout
                                             Grid.Column="0"
                                             VerticalOptions="Center"
                                             Padding="10">
                             <Label class="Headline" Text="{Binding DisplayName}" />
-                           
-                       
+
+
                                             <Time:WatchFace TimeNow="{Binding CurrentTime}" />
-                                          
-                        
+
+
                                         </VerticalStackLayout>
                     </StackLayout>
                 </DataTemplate>
@@ -289,34 +304,34 @@
 
 
 
-        <!--<StackLayout BindableLayout.ItemsSource="{Binding TimeZones}" Grid.Column="0">
+    <!--<StackLayout BindableLayout.ItemsSource="{Binding TimeZones}" Grid.Column="0">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                  
+
                     <Time:WatchFace TimeNow="{Binding CurrentTime, Mode=OneWay}" />
                 </DataTemplate>
-                
+
             </BindableLayout.ItemTemplate>
         </StackLayout>-->
 
-        <!--<Button
+    <!--<Button
             Grid.Row="1"
             Grid.Column="0"
             Margin="8"
             Command="{Binding GetWorldTimeCommand}"
-           
+
             Text="Get TimeZones" />-->
 
-        <!--<Time:WatchFace TimeNow="12:13:45"  Grid.Row="1"
+    <!--<Time:WatchFace TimeNow="12:13:45"  Grid.Row="1"
             Grid.Column="0" />
         <Time:WatchFace TimeNow="1:53:2"   Grid.Row="1"
             Grid.Column="1"/>-->
-        <!--<SearchBar x:Name="searchBar"
+    <!--<SearchBar x:Name="searchBar"
                        Placeholder="Search Time Zones"
                     Grid.Row="1"
             Grid.Column="1"
                        Text="{Binding SearchTerm}"
-                  
+
                         />
         <ActivityIndicator
             Grid.RowSpan="2"

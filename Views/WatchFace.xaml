@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WorldTime.WatchFace">
+<ContentView
+    x:Class="WorldTime.WatchFace"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <VerticalStackLayout>
-        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <Label x:Name="TimeLabel" class="SectionTitle" HorizontalOptions="Center"   BackgroundColor="{AppThemeBinding Light={StaticResource LightGray}, Dark={StaticResource Background_Mid}}"
-                />
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label
+                x:Name="TimeLabel"
+                BackgroundColor="{AppThemeBinding Light={StaticResource LightGray},
+                                                  Dark={StaticResource Background_Mid}}"
+                HorizontalOptions="Center"
+                class="SectionTitle" />
             <!--<Label x:Name="TimeLabel" class="SectionTitle" Text="{Binding CurrentTime, Mode=OneWay, StringFormat='HH:mm:ss'}" HorizontalOptions="Center"   BackgroundColor="{AppThemeBinding Light={StaticResource LightGray}, Dark={StaticResource Background_Mid}}"
                 />-->
 
-            
+
         </StackLayout>
     </VerticalStackLayout>
 </ContentView>

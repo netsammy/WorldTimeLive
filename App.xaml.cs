@@ -1,4 +1,6 @@
-﻿namespace WorldTime;
+﻿
+
+namespace WorldTime;
 
 public partial class App : Application
 {
@@ -7,7 +9,16 @@ public partial class App : Application
         InitializeComponent();
 
         MainPage = new AppShell();
+
+        //MainPage = new AppShell {            
+        //    FlyoutIcon="earth.gif",
+            
+        //};
         // WorldTimePage = new AppShell();
+
+        //add earth.gif image to the app
+        // MainPage.BackgroundImageSource = "earth.gif";
+
 
     }
 }
